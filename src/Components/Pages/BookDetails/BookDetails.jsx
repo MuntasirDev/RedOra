@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToStoredDB } from "../../../Utilities/addToDB";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -20,6 +21,13 @@ const BookDetails = () => {
     totalPages,
     rating,
   } = singleBook;
+
+  const handleMarkAsRead = id => {
+
+addToStoredDB(id)
+
+
+  }
 
   return (
     <div className="bg-gray-100 min-h-screen p-8 font-serif flex items-center justify-center ">
@@ -67,7 +75,7 @@ const BookDetails = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 pt-4">
-            <button className="rounded-lg bg-[#23BE0A] text-white px-6 py-3  hover:bg-green-700 transition-colors font-semibold">
+            <button onClick={()=>handleMarkAsRead (id)} className="rounded-lg bg-[#23BE0A] text-white px-6 py-3  hover:bg-green-700 transition-colors font-semibold">
               Mark as Read
             </button>
 
