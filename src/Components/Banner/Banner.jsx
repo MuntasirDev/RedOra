@@ -7,11 +7,11 @@ const Banner = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-16">
         
         {/* Text + button */}
-        <div className="flex flex-col items-start space-y-6 lg:w-1/2">
+        <div className="font-serif flex flex-col items-start space-y-6 lg:w-1/2">
           <h1 className="text-4xl lg:text-5xl font-bold leading-snug">
             A sanctuary of stories, curated for gentle minds.
           </h1>
-          <button className="bg-[#23BE0A] text-white font-semibold px-6 py-3  hover:bg-green-700 transition-colors">
+          <button className="rounded-lg bg-[#23BE0A] text-white font-semibold px-6 py-3  hover:bg-green-700 transition-colors">
             View The List
           </button>
         </div>

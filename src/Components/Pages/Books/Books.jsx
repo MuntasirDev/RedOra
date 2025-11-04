@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense } from "react";
+import Book from "./Book";
 
-const Books = () => {
-  const [allBooks, setAllBooks] = useState([]);
+const Books = ({ booksArray }) => {
+  return (
+    <div className="p-8">
+      <h1 className="text-3xl text-center p-10 font-bold font-serif">Books</h1>
 
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/ProgrammingHero1/boi-poka-Book-Vibe-Resources/refs/heads/main/data/booksData.json"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setAllBooks(data);
-        console.log(data); // ✅ now you’ll see it in dev tools
-      })
-      }, []);
-
-  return <div>Books loaded: {allBooks.length}</div>;
+      <Suspense fallback={<span className="font-serif">Loading......</span>}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center shadow-2xl">
+          {Array.isArray(booksArray) &&
+            booksArray.map((singleBook) => (
+              <Book key={singleBook.bookId} singleBook={singleBook} />
+            ))}
+        </div>
+      </Suspense>
+    </div>
+  );
 };
 
 export default Books;
