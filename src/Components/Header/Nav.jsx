@@ -18,21 +18,22 @@ const Nav = () => {
       </li>
       <li>
         <Link
-          to="/About"
-          className="font-serif relative text-black font-medium px-2 py-1 hover:text-[#23BE0A] transition-colors duration-300"
-          onClick={() => setMobileOpen(false)}
-        >
-          About
-          <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#23BE0A] transition-all duration-300 hover:w-full"></span>
-        </Link>
-      </li>
-      <li>
-        <Link
           to="/ReadList"
           className="font-serif relative text-black font-medium px-2 py-1 hover:text-[#23BE0A] transition-colors duration-300"
           onClick={() => setMobileOpen(false)}
         >
-          Read List
+          Listed Books
+          <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#23BE0A] transition-all duration-300 hover:w-full"></span>
+        </Link>
+      </li>
+
+      <li>
+        <Link
+          to="/read"
+          className="font-serif relative text-black font-medium px-2 py-1 hover:text-[#23BE0A] transition-colors duration-300"
+          onClick={() => setMobileOpen(false)}
+        >
+          Pages to Read
           <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#23BE0A] transition-all duration-300 hover:w-full"></span>
         </Link>
       </li>

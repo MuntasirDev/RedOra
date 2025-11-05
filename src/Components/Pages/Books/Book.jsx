@@ -11,7 +11,7 @@ const Book = ({ singleBook }) => {
     category,
     publisher,
     tags = [],
-    rating,
+    rating,totalPages
   } = singleBook;
 
   return (
@@ -46,16 +46,27 @@ const Book = ({ singleBook }) => {
         {tags.length > 0 && (
           <p className="text-sm text-gray-500">Tags: {tags.join(", ")}</p>
         )}
-        {
-         rating && (
-            <p className="flex p-2 gap-1 "><Star></Star>{rating}</p>
-         )
-        }
+{rating && (
+  <div className="flex items-center justify-between gap-4 mt-2 text-sm">
+    <div className="flex items-center gap-1 font-medium">
+      <Star className="w-4 h-4" />
+      {rating}
+    </div>
+
+    <span className="opacity-80">
+      Pages: <span className="font-semibold">{totalPages}</span>
+    </span>
+  </div>
+)}
+
+
+
+
 
         {/* Buy Button */}
         <div className="card-actions mt-4">
           <button className=" bg-[#23BE0A] text-white font-semibold px-6 py-3  hover:bg-green-700 transition-colors rounded-lg">
-            Buy Now
+            Read Now
           </button>
         </div>
       </div>

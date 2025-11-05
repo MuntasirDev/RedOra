@@ -1,31 +1,43 @@
-const getStoredBook = () =>
-{
-    const storedBookSTR=localStorage.getItem("readList");
-    if (storedBookSTR)
-    {
-        const storedBookData = JSON.parse(storedBookSTR);
-        return storedBookData;
-    }
 
-    else {
-        return[];
+const getStoredBook = () => {
+    const storedBookSTR = localStorage.getItem("readList");
+    if (storedBookSTR) {
+        return JSON.parse(storedBookSTR);
+    } else {
+        return [];
     }
-}
+};
 
-const addToStoredDB = (id) =>
-{
-    const storedBookData=getStoredBook();
+const addToStoredDB = (id) => {
+    const storedBookData = getStoredBook();
 
     if (storedBookData.includes(id)) {
-        alert("This book Is already Exist")
-
-    }
-
-    else {
+        alert("This book is already in your read list");
+    } else {
         storedBookData.push(id);
-const data = JSON.stringify(storedBookData);
-localStorage.setItem("readList",data);
+        localStorage.setItem("readList", JSON.stringify(storedBookData));
     }
-}
+};
 
-export {addToStoredDB,getStoredBook}
+
+const getStoredWishlist = () => {
+    const storedWishlistSTR = localStorage.getItem("wishlist");
+    if (storedWishlistSTR) {
+        return JSON.parse(storedWishlistSTR);
+    } else {
+        return [];
+    }
+};
+
+const addToWishlist = (id) => {
+    const storedWishlistData = getStoredWishlist();
+
+    if (storedWishlistData.includes(id)) {
+        alert("This book is already in your wishlist");
+    } else {
+        storedWishlistData.push(id);
+        localStorage.setItem("wishlist", JSON.stringify(storedWishlistData));
+    }
+};
+
+export { addToStoredDB, getStoredBook, addToWishlist, getStoredWishlist };
